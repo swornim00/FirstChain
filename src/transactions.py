@@ -1,4 +1,4 @@
-import blockchain
+import blockchain,validate
 
 Chain = blockchain.BlockChain()
 
@@ -10,3 +10,6 @@ for block in Chain.chain:
     print("Previous Hash:", block.previousHash)
     print("Data:",block.data)
     print("======================================================")
+
+validate = validate.Validate()
+print(validate.isValid(Chain.chain))
