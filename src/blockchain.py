@@ -3,7 +3,7 @@ import datetime
 class Block:
     def __init__(self,index, data, previousHash):
         self.sugar = 0
-        self.level = 8
+        self.level = 4
         self.index = index
         self.timestamp = datetime.datetime.now().timestamp()
         self.previousHash = previousHash
@@ -35,5 +35,17 @@ class BlockChain:
         self.chain.append(Block(0,"Hello World!",fHash.hexdigest()))
 
     def CreateBlock(self,data):
-        self.chain.append(Block(len(self.chain),data,self.chain[len(self.chain)-1].hash))
-    
+        if(self.chain.append(Block(len(self.chain),data,self.chain[len(self.chain)-1].hash))):
+            return True
+        else:
+            return False
+
+    def ShowBlocks(self):
+        for block in self.chain:
+            print("Index:%d"%block.index)
+            print("Hash:",block.hash)
+            print("Previous Hash:", block.previousHash)
+            print("Data:",block.data)
+            print("======================================================")
+
+
